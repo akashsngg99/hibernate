@@ -23,6 +23,7 @@ public class App
         e.setManger_id(11);
         System.out.println("Looking for config: " + Thread.currentThread().getContextClassLoader().getResource("hibernate.cfg.xml"));
         Configuration cfg = new Configuration();
+
         cfg.addAnnotatedClass(emp.class);
         cfg.configure("hibernate.cfg.xml"); // <- correct
 
