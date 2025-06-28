@@ -17,7 +17,7 @@ public class App
         System.out.println( "Hello World!" );
 
         emp e= new emp();
-        //e.setEmpID(2089747);
+        e.setEmpID(2089747);
         e.setEmpName("Akash SIngh");
         e.setSalary(90000);
         e.setManger_id(11);
@@ -29,12 +29,19 @@ public class App
         SessionFactory sfs = cfg.buildSessionFactory();
 
         Session session= sfs.openSession();
-        Transaction tx = session.beginTransaction();
+        //Transaction tx = session.beginTransaction();
+        // session.persist(e);
+        //  tx.commit();
+        // System.out.print(e);
 
 
-        session.persist(e);
-        tx.commit();
-        System.out.print(e);
+        emp s2=null;
+        s2=session.get(emp.class,2089747);
+
+        System.out.println(s2);
+
+
+
 
 
 
