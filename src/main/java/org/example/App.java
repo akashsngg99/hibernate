@@ -18,7 +18,7 @@ public class App
 
         emp e= new emp();
         e.setEmpID(2089747);
-        e.setEmpName("Akash SIngh");
+        e.setEmpName("Akash Singh");
         e.setSalary(90000);
         e.setManger_id(11);
         System.out.println("Looking for config: " + Thread.currentThread().getContextClassLoader().getResource("hibernate.cfg.xml"));
