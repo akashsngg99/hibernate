@@ -20,7 +20,7 @@ public class App
         e.setEmpID(2089747);
         e.setEmpName("Akash Singh");
         e.setSalary(90000);
-        e.setManger_id(11);
+        e.setManger_id(2089747);
         System.out.println("Looking for config: " + Thread.currentThread().getContextClassLoader().getResource("hibernate.cfg.xml"));
         Configuration cfg = new Configuration();
 
@@ -30,16 +30,26 @@ public class App
         SessionFactory sfs = cfg.buildSessionFactory();
 
         Session session= sfs.openSession();
-        //Transaction tx = session.beginTransaction();
-        // session.persist(e);
-        //  tx.commit();
-        // System.out.print(e);
+    /*    Transaction tx = session.beginTransaction();
+        session.persist(e);
+        tx.commit();
+        System.out.print(e);
 
-
+*/
+        /*fetch
         emp s2=null;
         s2=session.get(emp.class,2089747);
 
         System.out.println(s2);
+*/
+        Transaction tcx=session.beginTransaction();
+        session.merge(e);
+        tcx.commit();
+        System.out.print(e);
+
+        session.close();
+
+
 
 
 
