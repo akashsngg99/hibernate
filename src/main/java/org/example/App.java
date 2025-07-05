@@ -48,7 +48,13 @@ public class App
         System.out.print(e);
 
         session.close();
-
+// Delete emp with ID 2089747
+    Transaction tx = session.beginTransaction();
+    emp empToDelete = session.get(emp.class, 2089747);
+    if (empToDelete != null) {
+     session.delete(empToDelete);
+    }
+    tx.commit();
 
 
 
